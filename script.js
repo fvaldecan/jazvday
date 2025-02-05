@@ -301,7 +301,7 @@ function setupDragAndDrop() {
       droppable.classList.add("success");
       setTimeout(() => {
         completeGame(5);
-      }, 2000);
+      }, 3000);
     }
   });
 }
@@ -403,7 +403,6 @@ function setupMazeRunner() {
 
       // Check if the player has reached the goal
       if (mazeArray[playerPosition.y][playerPosition.x] === 2) {
-        alert("You reached the goal!"); // Display win message
         completeGame(4);
       }
     }

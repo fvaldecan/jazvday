@@ -1,6 +1,6 @@
 /* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: monospace, monospace; 
     text-align: center;
     background: aliceblue;
     color: #d63384;
@@ -25,6 +25,8 @@ body {
 }
 
 .game-btn {
+
+    font-family: monospace, monospace; 
     display: block;
     width: 100%;
     margin: 10px 0;
