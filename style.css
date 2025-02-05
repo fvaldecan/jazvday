@@ -1,6 +1,6 @@
 /* General Styling */
 body {
-    font-family: monospace, monospace; 
+    font-family: monospace, monospace;
     text-align: center;
     background: aliceblue;
     color: #d63384;
@@ -25,8 +25,7 @@ body {
 }
 
 .game-btn {
-
-    font-family: monospace, monospace; 
+    font-family: monospace, monospace;
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -185,13 +184,11 @@ body {
     clip-path: polygon(-41% 0, 50% 91%, 141% 0);
 }
 
-
 .art {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:100px;
-
+    padding: 100px;
 }
 .dog {
     position: relative;
@@ -287,61 +284,61 @@ body {
     top: 0;
 }
 
-  .dog-nose {
+.dog-nose {
     position: absolute;
     top: 110px;
     left: 50%;
     width: 22px;
     height: 22px;
-    background-color: #6B4F32;
+    background-color: #6b4f32;
     border-radius: 50%;
     transform: translateX(-50%);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  /* Cute Dog's smile */
-  .dog-smile {
+/* Cute Dog's smile */
+.dog-smile {
     position: absolute;
     top: 130px;
     left: 50%;
     width: 80px;
     height: 30px;
     background-color: transparent;
-    border: 3px solid #6B4F32;
+    border: 3px solid #6b4f32;
     border-radius: 0 0 30px 30px;
     transform: translateX(-50%) rotate(0deg);
-  }
+}
 
-  /* Prize above the dog */
-  .dog-prize {
+/* Prize above the dog */
+.dog-prize {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
     width: 50px;
     height: 50px;
-    background-color: #FFD700;
+    background-color: #ffd700;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
+}
 
-  .dog-prize::before {
-    content: '🏆';
+.dog-prize::before {
+    content: "🏆";
     font-size: 30px;
-  }
+}
 
-  /* Cute Dog's tail */
-  .dog-tail {
+/* Cute Dog's tail */
+.dog-tail {
     position: absolute;
     bottom: -10px;
     left: 10px;
     width: 90px;
     height: 25px;
-    background-color: #FFDD90;
+    background-color: #ffdd90;
     border-radius: 50%;
     transform: rotate(15deg);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
+}

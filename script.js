@@ -3,7 +3,6 @@ let gameHeader = document.getElementById("game-header");
 
 function startGame(gameNumber) {
   gameArea.innerHTML = "";
-
   switch (gameNumber) {
     case 1:
       setupValentinesQuiz();
