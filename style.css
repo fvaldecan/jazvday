@@ -19,7 +19,7 @@ body {
 }
 
 /* Buttons */
-#heart-btn{
+#heart-btn {
     margin: 0;
     font-size: 10px;
 }
@@ -36,8 +36,8 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
-#no-btn{
-   background: red; 
+#no-btn {
+    background: red;
 }
 .game-btn:disabled {
     background: #d3d3d3;
@@ -182,155 +182,164 @@ body {
     border-image: radial-gradient(red 69%, #0000 70%) 84.5%/50%;
     clip-path: polygon(-41% 0, 50% 91%, 141% 0);
 }
-.gojo-background{
+
+
+.art {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #0a0a0a; /* Even darker background */
-    margin: 0;
+    padding:100px;
+
 }
-.gojo {
+.dog {
     position: relative;
-    width: 260px;
-    height: 380px;
+    width: 120px;
+    height: 100px;
+    background-color: #8d6e63;
+    border-radius: 50px 50px 30px 30px;
 }
-/* Head */
-.head {
-    width: 110px;
-    height: 120px;
-    background-color: #f5d6c6;
+
+.ear {
     position: absolute;
-    top: 50px;
-    left: 70px;
+    width: 40px;
+    height: 50px;
+    background-color: #6d4c41;
     border-radius: 50%;
+    top: -10px;
 }
-/* Spikier Hair */
-.hair {
-    position: absolute;
-    width: 180px;
-    height: 110px;
-    background: white;
-    top: 10px;
-    left: 35px;
-    clip-path: polygon(10% 95%, 20% 40%, 35% 10%, 50% 0%, 65% 10%, 80% 40%, 90% 95%, 75% 50%, 50% 5%, 25% 50%);
-    box-shadow: 0 -8px 12px white, 0 -18px 20px rgba(255,255,255,0.9);
+
+.ear.left {
+    left: -20px;
+    transform: rotate(-20deg);
 }
-/* Blindfold */
-.blindfold {
-    position: absolute;
-    width: 140px;
-    height: 35px;
-    background: black;
-    top: 75px;
-    left: 60px;
-    border-radius: 10px;
+
+.ear.right {
+    right: -20px;
+    transform: rotate(20deg);
 }
-/* Glowing Eyes */
-.eyes {
+
+.eye {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background: cyan;
+    width: 10px;
+    height: 10px;
+    background-color: black;
     border-radius: 50%;
-    top: 83px;
-    left: 85px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 1);
+    top: 30px;
 }
-.eyes::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: cyan;
-    border-radius: 50%;
-    top: 0;
-    left: 50px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 1);
-}
-/* Body */
-.body {
-    position: absolute;
-    width: 160px;
-    height: 190px;
-    background: #1a1a1a;
-    top: 130px;
-    left: 50px;
-    border-radius: 15px;
-    box-shadow: 0 -5px 10px rgba(255, 255, 255, 0.1);
-}
-/* High Collar */
-.collar {
-    position: absolute;
-    width: 170px;
-    height: 55px;
-    background: #2b2b2b;
-    top: 110px;
-    left: 45px;
-    border-radius: 10px;
-    clip-path: polygon(0% 100%, 25% 40%, 50% 15%, 75% 40%, 100% 100%);
-    box-shadow: 0 -5px 10px rgba(255, 255, 255, 0.1);
-}
-/* Hollow Purple Glow */
-.hollow-purple {
-    position: absolute;
-    width: 190px;
-    height: 190px;
-    background: radial-gradient(circle, rgba(138,43,226,0.9) 20%, rgba(0,0,0,0) 70%);
-    top: 190px;
-    left: 35px;
-    border-radius: 50%;
-    animation: pulse 2s infinite alternate;
-    filter: blur(12px);
-}
-/* Infinity Barrier (Floating Energy Rings) */
-.infinity-ring {
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    border: 2px solid rgba(0, 255, 255, 0.5);
-    border-radius: 50%;
-    top: 100px;
-    left: 10px;
-    animation: spin 5s linear infinite;
-    filter: blur(2px);
-}
-.infinity-ring::after {
-    content: "";
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border: 2px solid rgba(138, 43, 226, 0.7);
-    border-radius: 50%;
-    top: 10px;
-    left: 10px;
-    animation: spin-reverse 4s linear infinite;
-}
-/* Dark Aura */
-.dark-aura {
-    position: absolute;
-    width: 200px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 90%);
-    top: 50px;
+
+.eye.left {
     left: 30px;
-    filter: blur(20px);
-    animation: aura 2s infinite alternate;
 }
-/* Animations */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+
+.eye.right {
+    right: 30px;
 }
-@keyframes spin-reverse {
-    0% { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
+
+.nose {
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(1.3); opacity: 1; }
+
+.mouth {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border: 3px solid black;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
 }
-@keyframes aura {
-    0% { opacity: 0.4; }
-    100% { opacity: 0.7; }
+
+.heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    top: 80px;
+    left: 50%;
+    transform: translateX(50%) rotate(20deg);
 }
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+    top: -20px;
+    left: 0;
+}
+
+.heart::after {
+    left: 20px;
+    top: 0;
+}
+
+  .dog-nose {
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    width: 22px;
+    height: 22px;
+    background-color: #6B4F32;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Cute Dog's smile */
+  .dog-smile {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    width: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: 3px solid #6B4F32;
+    border-radius: 0 0 30px 30px;
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  /* Prize above the dog */
+  .dog-prize {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .dog-prize::before {
+    content: '🏆';
+    font-size: 30px;
+  }
+
+  /* Cute Dog's tail */
+  .dog-tail {
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    width: 90px;
+    height: 25px;
+    background-color: #FFDD90;
+    border-radius: 50%;
+    transform: rotate(15deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }

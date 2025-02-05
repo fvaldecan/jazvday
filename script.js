@@ -1,9 +1,6 @@
-(function initialize() {
-  nextTimer();
-})();
-
 let gameArea = document.getElementById("game-area");
 let gameHeader = document.getElementById("game-header");
+
 function startGame(gameNumber) {
   gameArea.innerHTML = "";
 
@@ -31,6 +28,9 @@ function startGame(gameNumber) {
   }
 }
 function setupValentinesQuestion() {
+  gameHeader.innerHTML = "";
+  const art = document.getElementsByClassName("art");
+  art.innerHTML = "";
   dialogue(
     [
       { line: "ONE LAST GAME OKAY???", duration: 3 },
@@ -108,11 +108,75 @@ function setupValentinesQuestion() {
 
 function setupValentinesQuiz() {
   gameHeader.innerHTML = "";
-  gameArea.innerHTML = `<p>What day is Valentine's Day?</p>
+  dialogue(
+    [
+      { line: "loading...", duration: 0 },
+      {
+        line: "You must complete a series of challenges in order to unlock your SPECIAL prize at the end",
+        duration: 2,
+      },
+      { line: "If you don't complete them you'll...", duration: 6 },
+      { line: "DIEEEEEEEEEEEEEE", duration: 9 },
+      { line: "", duration: 12 },
+      { line: "jk you'll just have to start over", duration: 15 },
+      { line: "anywayssss get ready!", duration: 18 },
+    ],
+    gameArea
+  );
+  renderAfterDelay(intro, 20);
+  function intro() {
+    let count = 0;
+    const lines = [
+      "are you ready?",
+      "are you sure?",
+      "okay Jaz get ready",
+      "here's your first and most difficult challenge!",
+    ];
+    gameArea.innerHTML = `
+    <p id="game-instr">${lines[count]}</p>
+    <button id="yes-btn" class="game-btn">Yes</button>
+    <button id="no-btn" class="game-btn">No</button>
+    <p id="comment"></p>
+    `;
+    const gameInstr = document.getElementById("game-instr");
+    const noButton = document.getElementById("no-btn");
+    const yesButton = document.getElementById("yes-btn");
+    noButton.onclick = () => {
+      const comment = document.getElementById("comment");
+      comment.innerHTML = "lol nice try";
+    };
+    yesButton.onclick = () => {
+      count++;
+      gameInstr.innerHTML = lines[count];
+      if (count > 3) {
+        game();
+      }
+    };
+  }
+  function game() {
+    gameHeader.innerHTML = "";
+    gameArea.innerHTML = `<p>What day is Valentine's Day?</p>
                 <button class="game-btn" onclick="completeGame(1)">Feb 14</button>
-                <button class="game-btn">Feb 19</button>
-                <button class="game-btn" >April 11</button>
-                <button class="game-btn" >March 14</button>`;
+                <button id="jaz-bday" class="game-btn">Feb 19</button>
+                <button id="nicky-bday" class="game-btn" >April 11</button>
+                <button id="wrong-day" class="game-btn" >March 14</button>
+                <p id="comment"></>
+                
+                `;
+    const jazBdayAnswer = document.getElementById("jaz-bday");
+    const nickyBdayAnswer = document.getElementById("nicky-bday");
+    const wrongDayAnswer = document.getElementById("wrong-day");
+    const comment = document.getElementById("comment");
+    jazBdayAnswer.onclick = () => {
+      comment.innerHTML = "noooo that's your birhday";
+    };
+    nickyBdayAnswer.onclick = () => {
+      comment.innerHTML = "noooooo that's Nicky's birthday";
+    };
+    wrongDayAnswer.onclick = () => {
+      comment.innerHTML = "are you even trying??";
+    };
+  }
 }
 function setupHeartTap() {
   gameArea.innerHTML = `<p id="heart-tap-instr">Tap the heart as many times as you can!</p><div  id="heart"/>`;
@@ -399,11 +463,9 @@ function dialogue(lines, element) {
     }, line.duration * 1000);
   }
 }
-function nextTimer() {
+
+function renderAfterDelay(func, delay) {
   setTimeout(() => {
-    const gameArea = document.getElementById("game-area");
-    gameArea.innerHTML =
-      '<button class="game-btn" onclick=startGame(1)>Start</button>';
-    console.log("Hello, world!");
-  }, 3000);
+    func();
+  }, delay * 1000);
 }
