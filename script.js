@@ -13,15 +13,16 @@ function startGame(gameNumber) {
     case 3:
       setupMemoryGame();
       break;
-
     case 4:
+      setupScramble();
+      break;
+    case 5:
       setupMazeRunner();
       break;
-
-    case 5:
+    case 6:
       setupDragAndDrop();
       break;
-    case 6:
+    case 7:
       setupValentinesQuestion();
       break;
   }
@@ -47,7 +48,7 @@ function setupValentinesQuestion() {
     gameArea.innerHTML = `
       
       <p>Will you be my Valentine?</p>
-                <button id="yes-btn" class="game-btn" onclick="completeGame(6)">Yes</button>
+                <button id="yes-btn" class="game-btn" onclick="completeGame(7)">Yes</button>
                 <button id="no-btn"class="game-btn"">No</button><p id="lol-she-said-no"></p>
       `;
     const noButton = document.getElementById("no-btn");
@@ -74,7 +75,6 @@ function setupValentinesQuestion() {
         "plzzz",
         "plzzzzzzzzzzzzz",
       ];
-      console.log({ count });
       if (count === 1) {
         noButton.style.width = "90%";
       }
@@ -105,6 +105,58 @@ function setupValentinesQuestion() {
   }, 25000);
 }
 
+function setupScramble() {
+  dialogue(
+    [
+      { line: "okok i see you", duration: 3 },
+      { line: "let's see if you can handle", duration: 6 },
+      { line: "this one!", duration: 9 },
+    ],
+    gameArea
+  );
+  renderAfterDelay(startScramble, 12);
+  function startScramble() {
+    const words = ["LOVE", "HEART", "KISS", "HUG", "ROSE", "CUPID"];
+    const scrambledWords = words.map((word) => {
+      let scrambled = word
+        .split("")
+        .sort(() => Math.random() - 0.5)
+        .join("");
+      while (scrambled === word) {
+        scrambled = word
+          .split("")
+          .sort(() => Math.random() - 0.5)
+          .join("");
+      }
+      return scrambled;
+    });
+
+    gameArea.innerHTML = `<p>Unscramble: <strong id="scrambled-word">${scrambledWords[0]}</strong></p>`;
+
+    const inputField = document.createElement("input");
+    inputField.setAttribute("type", "text");
+    inputField.setAttribute("placeholder", "Enter the word");
+    gameArea.appendChild(inputField);
+
+    const checkButton = document.createElement("button");
+    checkButton.classList.add("game-btn");
+    checkButton.textContent = "Submit";
+    gameArea.appendChild(checkButton);
+    let count = 0;
+    checkButton.addEventListener("click", function () {
+      const scrambledWord = document.getElementById("scrambled-word");
+      const selectedWord = words[count];
+      if (inputField.value.toUpperCase() === selectedWord) {
+        count++;
+        scrambledWord.innerText = scrambledWords[count];
+        inputField.value = "";
+      }
+      if (count > scrambledWords.length - 1) {
+        completeGame(4);
+      }
+    });
+  }
+}
 function setupValentinesQuiz() {
   gameHeader.innerHTML = "";
   dialogue(
@@ -299,7 +351,7 @@ function setupDragAndDrop() {
       droppable.innerHTML = "💖 Opened!";
       droppable.classList.add("success");
       setTimeout(() => {
-        completeGame(5);
+        completeGame(6);
       }, 3000);
     }
   });
@@ -402,7 +454,7 @@ function setupMazeRunner() {
 
       // Check if the player has reached the goal
       if (mazeArray[playerPosition.y][playerPosition.x] === 2) {
-        completeGame(4);
+        completeGame(5);
       }
     }
 
@@ -447,7 +499,7 @@ function setupMazeRunner() {
 
 /* Track Completed Games & Unlock Surprise */
 function completeGame(gameNumber) {
-  if (gameNumber === 6) {
+  if (gameNumber === 7) {
     gameArea.style.display = "none";
     document.getElementById("surprise").style.display = "block";
   } else {
