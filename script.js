@@ -279,7 +279,7 @@ function setupMemoryGame() {
     let flippedCards = [];
     let matchedPairs = 0;
 
-    cards.forEach((icon, index) => {
+    cards.forEach((icon, _) => {
       let card = document.createElement("div");
       card.classList.add("card");
       card.dataset.icon = icon;
